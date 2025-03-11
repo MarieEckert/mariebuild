@@ -1,0 +1,49 @@
+= mariebuild(1)
+Marie Eckert
+v0.7.2
+:doctype: manpage
+:manmanual: MARIEBUILD
+:mansource: MARIEBUILD
+:man-linkstyle: pass:[blue R < >]
+
+== Name
+
+mariebuild - A build system primarly designed and intended for my use.
+
+== Synposis
+
+*mb* [OPTIONS...]
+
+== Options
+
+*-f, --force*::
+	Force fulfillment of incremental c_rules.
+
+*-i <file>, --in=<file>*::
+	Specify a build file.
+
+*-k, --keep-going*::
+	Ignore any failures/errors (if possible) and keep on building.
+
+*-n, --no-splash*::
+	Disable splash screen/logo.
+
+*-t <target>, --target=<target>*::
+	Specify the build target.
+
+*-v <level>, --verbosity=<level>*::
+	Set the verbosity level (0-3).
+
+*-?, --help*::
+	Give a help list.
+
+*--usage*::
+	Give a short usage message.
+
+*-V, --version*::
+	Print program version.
+
+== Copying
+
+Copyright (c) 2024, {author}. +
+This software is licensed under the BSD 3-Clause license.

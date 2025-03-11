@@ -128,6 +128,13 @@ if [ "$1" = "--compile-flags" ]; then
 	exit
 fi
 
+if [ "$1" = "--manpage" ]; then
+	COMMAND="asciidoctor -b manpage doc/mariebuild.adoc"
+	echo "	$COMMAND"
+	$COMMAND
+	exit $?
+fi
+
 setup
 build
 echo "==> Finished build!"

@@ -96,7 +96,7 @@ sector targets
 		str target_builddir '$(/config/files/release_dir)'
 		str target_objdir '$(/config/files/release_dir)$(/config/files/obj_dir)'
 
-		list str required_targets 'clean-release', 'depends'
+		list str required_targets 'clean-release', 'depends', 'manpage'
 
 		list str c_rules 'executable', 'strip-executable'
 	end
@@ -107,9 +107,18 @@ sector targets
 		str target_builddir '$(/config/files/release_dir)'
 		str target_objdir '$(/config/files/release_dir)$(/config/files/obj_dir)'
 
-		list str required_targets 'clean', 'depends'
+		list str required_targets 'clean', 'depends', 'manpage'
 
 		list str c_rules 'executable', 'strip-executable'
+	end
+
+	section manpage
+		str exec '#!/bin/bash
+		set -e
+		COMMAND="asciidoctor -b manpage doc/mariebuild.adoc"
+		echo "  $COMMAND"
+		$COMMAND
+		'
 	end
 end
 
@@ -129,7 +138,7 @@ sector c_rules
 			Darwin*)		STRIPFLAGS="-S -X";;
 		esac
 
-		printf "	strip $STRIPFLAGS ./mb\\n"
+		printf "  strip $STRIPFLAGS ./mb\\n"
 		strip $STRIPFLAGS $(%target_builddir%)$(/config/files/binname)
 		'
 	end
