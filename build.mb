@@ -120,6 +120,34 @@ sector targets
 		$COMMAND
 		'
 	end
+
+	section install
+		str exec '#!/bin/bash
+				  set -e
+
+				  if [[ -z "${INSTALL_PREFIX}" ]]; then
+				    INSTALL_PREFIX="/usr"
+				  fi
+
+				  BINDIR="$INSTALL_PREFIX/bin"
+				  MANDIR="$INSTALL_PREFIX/share/man/man1"
+
+				  _install() {
+				    echo "  -> Installing $1"
+					COMMAND="install $2"
+					echo "      $COMMAND"
+					eval $COMMAND
+				  }
+
+				  _install "binary" "-Dm 755 ./build/release/mb $BINDIR/mb"
+				  _install "manpage" "-Dm 644 doc/mariebuild.1 $MANDIR/mariebuild.1"
+
+				  # Symlink for manpage
+				  COMMAND="ln -si $MANDIR/mariebuild.1 $MANDIR/mb.1"
+				  echo "      $COMMAND"
+				  eval $COMMAND
+		'
+	end
 end
 
 ; Each compilation rule is defined within this sector. They can access Fields
