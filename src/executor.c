@@ -90,7 +90,7 @@ int mb_exec(char *script, char *name) {
 
 	waitpid(pid, &ret, 0);
 
-	mb_unregister_tmp_file(name);
+	mb_remove_script(name);
 
 exit:
 	XFREE(name);
