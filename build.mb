@@ -115,7 +115,7 @@ sector targets
 	section manpage
 		str exec '#!/bin/bash
 		set -e
-		COMMAND="asciidoctor -b manpage doc/mariebuild.adoc"
+		COMMAND="asciidoctor -b manpage doc/manpage.adoc -o doc/mariebuild.1"
 		echo "  $COMMAND"
 		$COMMAND
 		'
