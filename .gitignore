@@ -8,3 +8,4 @@ valgrind.*
 *.log
 *.swp
 compile_flags.txt
+doc/*.md.backup
