@@ -21,15 +21,20 @@ mb [-i <mariebuild file>] [-fkn] [-v 0-3] [-t <target name>]
 ## File structure
 Mariebuild utilises the MCFG/2 format for its build files. These are structured into sectors, then sections, then fields. Fields may only be declared within sections, which intern can only be declared within sectors.
 
-Mariebuild requires 3 sectors:
+Mariebuild requires 2-3 sectors:
 1. config
 2. targets
-3. c_rules
+3. c_rules (if wanted)
 
 For information about targets and c_rules, see their respective files within the documentation.
 
+### The Config Sector
 Within the config sector, mariebuild expects a mariebuild section containing a list of targets which should be available through the command line. A Default target can also be declared here.
-Additionally the default build type for each rule can also be defined there.
+
+Several additional fields can also be declared here, which will be used by mariebuild:
+
+* `build_type` (str) – The default build type for each rule.
+* `default_log_level` (u8) – The log level which should be used by default, overriden by the `-v` command line argument.
 
 Example:
 ```mcfg2
