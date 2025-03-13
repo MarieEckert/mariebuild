@@ -114,3 +114,12 @@ Incremental c_rules only process inputs which are newer than their corresponding
 If a c_rule doesn't specify which build type it uses, it defaults to the build type specified in the /config/mariebuild section. If this is also not specified it will be incremental by default.
 
 The build type is set by declaring a string field called `build_type` within the c_rule or the mariebuild config.
+
+## Relevant Source Files
+```
+src/
+    c_rule.c
+    c_rule.h
+    executor.c
+    executor.h
+```

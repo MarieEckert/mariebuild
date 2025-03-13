@@ -12,8 +12,7 @@ mb [-i <mariebuild file>] [-fkn] [-v 0-3] [-t <target name>]
 | -f      | --force   | Build every file, even if in incremental mode |
 | -k      | --keep-going | Ignore errors which occured whilst building and continue on (if possible) |
 | -n      | --no-splash | Do not print the mariebuild splash screen |
-| -v LEVEL | --verbosity=LEVEL | Set the logging verbosity level (0-3; 
-0 prints everything from debug and up; 3 is only errors) |
+| -v LEVEL | --verbosity=LEVEL | Set the logging verbosity level (0-3; 0 prints everything from debug and up; 3 is only errors) |
 | -t TARGET | --target=TARGET | Set the target to build. If not provided mariebuild will use the provided default target. If no default target is specified, it will try to run the debug target |
 | -? | --help | Display a help text for mariebuild |
 | -V | --version | Display version information about mariebuild |
@@ -22,6 +21,7 @@ mb [-i <mariebuild file>] [-fkn] [-v 0-3] [-t <target name>]
 Mariebuild utilises the MCFG/2 format for its build files. These are structured into sectors, then sections, then fields. Fields may only be declared within sections, which intern can only be declared within sectors.
 
 Mariebuild requires 2-3 sectors:
+
 1. config
 2. targets
 3. c_rules (if wanted)
