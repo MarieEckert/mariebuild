@@ -25,6 +25,11 @@ typedef enum mcfg_fmt_err {
   MCFG_FMT_NOT_FOUND,
 } mcfg_fmt_err_t;
 
+/**
+ * @copydoc mcfg_err_string
+ */
+char *mcfg_fmt_err_string(mcfg_fmt_err_t err);
+
 typedef struct mcfg_fmt_res {
   mcfg_fmt_err_t err;
 
