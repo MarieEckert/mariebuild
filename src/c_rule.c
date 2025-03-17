@@ -25,15 +25,15 @@
 #include "types.h"
 #include "xmem.h"
 
-#define FMT_ERR_CHECK(fmt_res, tag)                                       \
-	do {                                                                  \
-		if (fmt_res.err != MCFG_FMT_OK) {                                 \
-			mb_logf(                                                      \
-				LOG_ERROR,                                                \
-				"[c_rule:%s] mcfg_format_field_embeds failed: %d\n", tag, \
-				fmt_res.err);                                             \
-			return fmt_res.err;                                           \
-		}                                                                 \
+#define FMT_ERR_CHECK(fmt_res, tag)                                            \
+	do {                                                                       \
+		if (fmt_res.err != MCFG_FMT_OK) {                                      \
+			mb_logf(                                                           \
+				LOG_ERROR,                                                     \
+				"[c_rule:%s] mcfg_format_field_embeds failed: %d (%s)\n", tag, \
+				fmt_res.err, mcfg_fmt_err_string(fmt_res.err));                \
+			return fmt_res.err;                                                \
+		}                                                                      \
 	} while (0)
 
 #define ADD_DYNFIELD(file, name)                                             \
