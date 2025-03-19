@@ -128,8 +128,13 @@ bool is_file_newer(char *file1, char *file2) {
 	}
 
 #ifdef __APPLE__
+#if __DARWIN_64_BIT_INO_T
+	f_1_mtime = f_1_stat.st_mtimensec;
+	f_2_mtime = f_1_stat.st_mtimensec;
+#else
 	f_1_mtime = f_1_stat.st_mtimespec.tv_sec;
 	f_2_mtime = f_2_stat.st_mtimespec.tv_sec;
+#endif
 #else
 	f_1_mtime = f_1_stat.st_mtim.tv_sec;
 	f_2_mtime = f_2_stat.st_mtim.tv_sec;
