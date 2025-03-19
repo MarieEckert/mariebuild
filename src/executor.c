@@ -8,6 +8,7 @@
 #define _POSIX_C_SOURCE 2
 
 #include <errno.h>
+#include <inttypes.h>
 #include <limits.h>
 #include <math.h>
 #include <stdbool.h>
@@ -40,7 +41,8 @@ char *create_name_frompid(char *name, pid_t pid) {
 	size_t size = sizeof(prefix) + pid_size + strlen(name) + 1;
 
 	char *ret = XMALLOC(size);
-	snprintf(ret, size, "%s%d_%lu.%s", prefix, pid, script_counter, name);
+	snprintf(
+		ret, size, "%s%d_%" PRIu64 ".%s", prefix, pid, script_counter, name);
 	script_counter++;
 
 	return ret;
