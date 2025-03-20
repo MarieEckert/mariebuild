@@ -18,7 +18,7 @@ typedef enum log_level {
 } log_level_t;
 
 #if !defined(DEFAULT_LOG_LEVEL)
-#define DEFAULT_LOG_LEVEL LOG_STEPS
+#	define DEFAULT_LOG_LEVEL LOG_STEPS
 #endif
 
 extern log_level_t mb_log_level;

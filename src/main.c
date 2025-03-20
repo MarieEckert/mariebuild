@@ -4,9 +4,10 @@
  * Licensend under the BSD 3-Clause License.
  */
 
+#include <stdlib.h>
+
 #include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 #include <argp.h>
 
@@ -53,9 +54,11 @@ static struct argp_option options[] = {
 	{"verbosity", 'v', "LEVEL", 0, "Set the verbosity level (0-3)", 0},
 	{0, 0, 0, 0, 0, 0}};
 
-static error_t parse_opt(int key, char *arg, struct argp_state *state) {
+static error_t
+parse_opt(int key, char *arg, struct argp_state *state)
+{
 	args_t *args = state->input;
-	switch (key) {
+	switch(key) {
 		case 'i':
 			args->buildfile = arg;
 			break;
@@ -85,14 +88,18 @@ static error_t parse_opt(int key, char *arg, struct argp_state *state) {
 static struct argp argp = {options, parse_opt, args_doc, description,
 						   NULL,	NULL,	   NULL};
 
-void print_splash(void) {
+void
+print_splash(void)
+{
 	fprintf(stderr, LOGO);
-	fprintf(
-		stderr, "\x1b[1m\x1b[3m// version " MARIEBUILD_VERSION " //\x1b[0m\n");
+	fprintf(stderr,
+			"\x1b[1m\x1b[3m// version " MARIEBUILD_VERSION " //\x1b[0m\n");
 	fprintf(stderr, "\n");
 }
 
-int main(int argc, char **argv) {
+int
+main(int argc, char **argv)
+{
 	args_t args;
 	args.buildfile = "build.mb";
 	args.target = NULL;
@@ -104,7 +111,7 @@ int main(int argc, char **argv) {
 
 	argp_parse(&argp, argc, argv, 0, 0, &args);
 
-	if (!args.no_splash) {
+	if(!args.no_splash) {
 		print_splash();
 	}
 

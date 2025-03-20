@@ -4,23 +4,26 @@
  * Licensend under the BSD 3-Clause License.
  */
 
+#include <stdlib.h>
+
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 #include "ansi.h"
 #include "logging.h"
 
 log_level_t mb_log_level = LOG_STEPS;
 
-log_level_t str_to_loglvl(char *str) {
-	if (str == NULL) {
+log_level_t
+str_to_loglvl(char *str)
+{
+	if(str == NULL) {
 		return LOG_DEBUG;
 	}
 
 	long int converted = strtol(str, NULL, 10);
 
-	switch (converted) {
+	switch(converted) {
 		case LOG_DEBUG:
 			return LOG_DEBUG;
 		case LOG_STEPS:
@@ -36,13 +39,15 @@ log_level_t str_to_loglvl(char *str) {
 	}
 }
 
-int mb_logf(log_level_t level, const char *format, ...) {
-	if (level < mb_log_level) {
+int
+mb_logf(log_level_t level, const char *format, ...)
+{
+	if(level < mb_log_level) {
 		return 0;
 	}
 
 	char *level_prefix;
-	switch (level) {
+	switch(level) {
 		default:
 		case LOG_DEBUG:
 			level_prefix = "---";
@@ -75,8 +80,10 @@ int mb_logf(log_level_t level, const char *format, ...) {
 	return done;
 }
 
-int mb_logf_noprefix(log_level_t level, const char *format, ...) {
-	if (level < mb_log_level) {
+int
+mb_logf_noprefix(log_level_t level, const char *format, ...)
+{
+	if(level < mb_log_level) {
 		return 0;
 	}
 
@@ -90,6 +97,8 @@ int mb_logf_noprefix(log_level_t level, const char *format, ...) {
 	return done;
 }
 
-void mb_log(int level, char *msg) {
+void
+mb_log(int level, char *msg)
+{
 	mb_logf(level, msg, "");
 }

@@ -4,32 +4,35 @@
  * Licensend under the BSD 3-Clause License.
  */
 
+#include "stringutil.h"
 #include <stdlib.h>
 #include <string.h>
 
-#include "stringutil.h"
-
-bool string_cptrlist_search(void *a, void *b) {
+bool
+string_cptrlist_search(void *a, void *b)
+{
 	char *str_a = (char *)a;
 	char *str_b = (char *)b;
 
-	if (str_a == str_b) {
+	if(str_a == str_b) {
 		return true;
 	}
-	if (str_a == NULL || str_b == NULL) {
+	if(str_a == NULL || str_b == NULL) {
 		return false;
 	}
 
 	return strcmp(str_a, str_b) == 0;
 }
 
-char *strdup(const char *in) {
-	if (in == NULL) {
+char *
+strdup(const char *in)
+{
+	if(in == NULL) {
 		return NULL;
 	}
 
 	char *out = malloc(strlen(in) + 1);
-	if (out == NULL) {
+	if(out == NULL) {
 		return NULL;
 	}
 

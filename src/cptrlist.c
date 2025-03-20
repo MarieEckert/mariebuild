@@ -20,12 +20,13 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#include "cptrlist.h"
 #include <stdlib.h>
 
-#include "cptrlist.h"
-
-bool cptrlist_init(CPtrList *list, size_t capacity, size_t resize_align) {
-	if (list == NULL) {
+bool
+cptrlist_init(CPtrList *list, size_t capacity, size_t resize_align)
+{
+	if(list == NULL) {
 		return false;
 	}
 
@@ -40,43 +41,47 @@ bool cptrlist_init(CPtrList *list, size_t capacity, size_t resize_align) {
 	return list->items != NULL;
 }
 
-static bool _cptrlist_resize(CPtrList *list) {
-	if (list == NULL) {
+static bool
+_cptrlist_resize(CPtrList *list)
+{
+	if(list == NULL) {
 		return false;
 	}
 
 	size_t newcap =
 		(list->capacity + list->resize_align) - ~(list->resize_align - 1);
-	if (list->items == NULL) {
+	if(list->items == NULL) {
 		list->items = calloc(newcap, sizeof(void *));
 		goto exit;
 	}
 
 	list->items = realloc(list->items, newcap * sizeof(void *));
-	if (list->items == NULL) {
+	if(list->items == NULL) {
 		return false;
 	}
 
-	for (size_t ix = list->size; ix < newcap; ix++) {
+	for(size_t ix = list->size; ix < newcap; ix++) {
 		list->items[ix] = NULL;
 	}
 
 exit:;
 	const bool null = list->items == NULL;
-	if (!null) {
+	if(!null) {
 		list->capacity = newcap;
 	}
 
 	return !null;
 }
 
-ssize_t cptrlist_append(CPtrList *list, void *item) {
-	if (list == NULL) {
+ssize_t
+cptrlist_append(CPtrList *list, void *item)
+{
+	if(list == NULL) {
 		return -1;
 	}
 
-	if (list->size == list->capacity && list->allow_resize) {
-		if (!_cptrlist_resize(list)) {
+	if(list->size == list->capacity && list->allow_resize) {
+		if(!_cptrlist_resize(list)) {
 			return -1;
 		}
 	}
@@ -85,13 +90,15 @@ ssize_t cptrlist_append(CPtrList *list, void *item) {
 	return list->size++;
 }
 
-ssize_t cptrlist_insert_or_append(CPtrList *list, void *item) {
-	if (list == NULL) {
+ssize_t
+cptrlist_insert_or_append(CPtrList *list, void *item)
+{
+	if(list == NULL) {
 		return -1;
 	}
 
-	for (size_t ix = 0; ix < list->size; ix++) {
-		if (list->items[ix] == NULL) {
+	for(size_t ix = 0; ix < list->size; ix++) {
+		if(list->items[ix] == NULL) {
 			list->items[ix] = item;
 			return ix;
 		}
@@ -100,16 +107,15 @@ ssize_t cptrlist_insert_or_append(CPtrList *list, void *item) {
 	return cptrlist_append(list, item);
 }
 
-ssize_t cptrlist_find(
-	CPtrList *list,
-	void *search,
-	bool (*search_func)(void *, void *)) {
-	if (list == NULL) {
+ssize_t
+cptrlist_find(CPtrList *list, void *search, bool (*search_func)(void *, void *))
+{
+	if(list == NULL) {
 		return -1;
 	}
 
-	for (size_t ix = 0; ix < list->size; ix++) {
-		if (search_func(search, list->items[ix])) {
+	for(size_t ix = 0; ix < list->size; ix++) {
+		if(search_func(search, list->items[ix])) {
 			return ix;
 		}
 	}
@@ -117,30 +123,34 @@ ssize_t cptrlist_find(
 	return -1;
 }
 
-void cptrlist_free_at(CPtrList *list, size_t index) {
-	if (list == NULL || index >= list->size || list->items[index] == NULL) {
+void
+cptrlist_free_at(CPtrList *list, size_t index)
+{
+	if(list == NULL || index >= list->size || list->items[index] == NULL) {
 		return;
 	}
 
 	free(list->items[index]);
-	if (index == list->size - 1) {
+	if(index == list->size - 1) {
 		list->size--;
 	}
 }
 
-void cptrlist_free(CPtrList *list, void *item) {
-	if (list == NULL || item == NULL) {
+void
+cptrlist_free(CPtrList *list, void *item)
+{
+	if(list == NULL || item == NULL) {
 		return;
 	}
 
 	bool hit = false;
 	size_t last_hit = 0;
-	for (size_t ix = 0; ix < list->size; ix++) {
-		if (list->items[ix] != item) {
+	for(size_t ix = 0; ix < list->size; ix++) {
+		if(list->items[ix] != item) {
 			continue;
 		}
 
-		if (!hit) {
+		if(!hit) {
 			free(list->items[ix]);
 		}
 
@@ -149,17 +159,19 @@ void cptrlist_free(CPtrList *list, void *item) {
 		last_hit = ix;
 	}
 
-	if (hit && last_hit == list->size - 1) {
+	if(hit && last_hit == list->size - 1) {
 		list->size--;
 	}
 }
 
-void cptrlist_destroy(CPtrList *list) {
-	if (list == NULL) {
+void
+cptrlist_destroy(CPtrList *list)
+{
+	if(list == NULL) {
 		return;
 	}
 
-	for (size_t ix = 0; ix < list->size; ix++) {
+	for(size_t ix = 0; ix < list->size; ix++) {
 		cptrlist_free(list, list->items[ix]);
 	}
 
