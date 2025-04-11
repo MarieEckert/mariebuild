@@ -131,6 +131,7 @@ cptrlist_free_at(CPtrList *list, size_t index)
 	}
 
 	free(list->items[index]);
+	list->items[index] = NULL;
 	if(index == list->size - 1) {
 		list->size--;
 	}
