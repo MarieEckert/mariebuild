@@ -20,6 +20,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#define _XOPEN_SOURCE	700
+#define _POSIX_C_SOURCE 2
+
 #include <stdlib.h>
 
 #include "cptrlist.h"

@@ -15,10 +15,8 @@
 #include "logging.h"
 #include "mcfg.h"
 #include "mcfg_util.h"
-#include "stringutil.h"
 #include "target.h"
 #include "types.h"
-#include "xmem.h"
 
 config_t default_config = {
 	.build_type = BUILD_TYPE_INCREMENTAL,

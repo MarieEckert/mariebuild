@@ -39,7 +39,7 @@ has_shebang(char *script)
 char *
 create_name_frompid(char *name, pid_t pid)
 {
-	const char *prefix = "/tmp/";
+	const char prefix[] = "/tmp/";
 
 	size_t pid_size = (size_t)floor(log10((double)INT_MAX));
 	size_t size = sizeof(prefix) + pid_size + strlen(name) + 1;
