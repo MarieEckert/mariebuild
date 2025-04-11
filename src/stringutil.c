@@ -4,6 +4,9 @@
  * Licensend under the BSD 3-Clause License.
  */
 
+#define _XOPEN_SOURCE	700
+#define _POSIX_C_SOURCE 2
+
 #include "stringutil.h"
 #include <stdlib.h>
 #include <string.h>
@@ -22,20 +25,4 @@ string_cptrlist_search(void *a, void *b)
 	}
 
 	return strcmp(str_a, str_b) == 0;
-}
-
-char *
-strdup(const char *in)
-{
-	if(in == NULL) {
-		return NULL;
-	}
-
-	char *out = malloc(strlen(in) + 1);
-	if(out == NULL) {
-		return NULL;
-	}
-
-	memcpy(out, in, strlen(in) + 1);
-	return out;
 }

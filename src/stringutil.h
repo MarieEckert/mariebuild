@@ -11,6 +11,4 @@
 
 bool string_cptrlist_search(void *a, void *b);
 
-char *strdup(const char *in);
-
 #endif
