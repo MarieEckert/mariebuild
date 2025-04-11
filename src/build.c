@@ -7,15 +7,15 @@
 #define _XOPEN_SOURCE	700
 #define _POSIX_C_SOURCE 2
 
-#include "cptrlist.h"
-#include "stringutil.h"
 #include <stdlib.h>
 #include <string.h>
 
 #include "build.h"
+#include "cptrlist.h"
 #include "logging.h"
 #include "mcfg.h"
 #include "mcfg_util.h"
+#include "stringutil.h"
 #include "target.h"
 #include "types.h"
 #include "xmem.h"

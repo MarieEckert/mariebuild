@@ -7,9 +7,10 @@
 #define _XOPEN_SOURCE	700
 #define _POSIX_C_SOURCE 2
 
-#include "stringutil.h"
 #include <stdlib.h>
 #include <string.h>
+
+#include "stringutil.h"
 
 bool
 string_cptrlist_search(void *a, void *b)

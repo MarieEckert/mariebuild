@@ -4,9 +4,8 @@
  * Licensend under the BSD 3-Clause License.
  */
 
-#include <string.h>
-
 #include <stddef.h>
+#include <string.h>
 
 #include "logging.h"
 #include "types.h"

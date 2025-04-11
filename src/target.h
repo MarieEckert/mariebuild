@@ -8,7 +8,6 @@
 #define TARGET_H
 
 #include "cptrlist.h"
-
 #include "mcfg.h"
 #include "types.h"
 

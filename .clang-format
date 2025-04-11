@@ -38,14 +38,18 @@ IndentPPDirectives: AfterHash
 SortIncludes: CaseInsensitive
 IncludeBlocks: Regroup
 IncludeCategories:
-  - Regex: "<algorithm|any|array|atomic|backward|barrier|bit|bits|bitset|cassert|ccomplex|cctype|cerrno|cfenv|cfloat|charconv|chrono|cinttypes|ciso646|climits|clocale|cmath|codecvt|compare|complex|complex.h|concepts|condition_variable|coroutine|csetjmp|csignal|cstdalign|cstdarg|cstdbool|cstddef|cstdint|cstdio|cstdlib|cstring|ctgmath|ctime|cuchar|cwchar|cwctype|cxxabi.h|debug|decimal|deque|exception|execution|experimental|ext|fenv.h|filesystem|forward_list|fstream|functional|future|initializer_list|iomanip|ios|iosfwd|iostream|istream|iterator|latch|limits|list|locale|map|math.h|memory|memory_resource|mutex|new|numbers|numeric|optional|ostream|parallel|pstl|queue|random|ranges|ratio|regex|scoped_allocator|semaphore|set|shared_mutex|source_location|span|sstream|stack|stdexcept|stdlib.h|stop_token|streambuf|string|string_view|syncstream|system_error|tgmath.h|thread|tr1|tr2|tuple|typeindex|typeinfo|type_traits|unordered_map|unordered_set|utility|valarray|variant|vector|version>"
-    Priority: -4
-  - Regex: "<assert.h|complex.h|ctype.h|errno.h|fenv.h|float.h|inttypes.h|iso646.h|limits.h|locale.h|math.h|setjmp.h|signal.h|stdalign.h|stdarg.h|stdatomic.h|stdbit.h|stdbool.h|stdckdint.h|stddef.h|stdint.h|stdio.h|stdlib.h|stdnoreturn.h|string.h|tgmath.h|threads.h|time.h|uchar.h|wchar.h|wctype.h>"
-    Priority: -3
+  - Regex: "<(algorithm|any|array|atomic|backward|barrier|bit|bits|bitset|cassert|ccomplex|cctype|cerrno|cfenv|cfloat|charconv|chrono|cinttypes|ciso646|climits|clocale|cmath|codecvt|compare|complex|concepts|condition_variable|coroutine|csetjmp|csignal|cstdalign|cstdarg|cstdbool|cstddef|cstdint|cstdio|cstdlib|cstring|ctgmath|ctime|cuchar|cwchar|cwctype|cxxabi.h|debug|decimal|deque|exception|execution|experimental|ext|filesystem|forward_list|fstream|functional|future|initializer_list|iomanip|ios|iosfwd|iostream|istream|iterator|latch|limits|list|locale|map|memory|memory_resource|mutex|new|numbers|numeric|optional|ostream|parallel|pstl|queue|random|ranges|ratio|regex|scoped_allocator|semaphore|set|shared_mutex|source_location|span|sstream|stack|stdexcept|stop_token|streambuf|string|string_view|syncstream|system_error|thread|tr1|tr2|tuple|typeindex|typeinfo|type_traits|unordered_map|unordered_set|utility|valarray|variant|vector|version)>"
+    Priority: -7
+  - Regex: "<(assert.h|complex.h|ctype.h|errno.h|fenv.h|float.h|inttypes.h|iso646.h|limits.h|locale.h|math.h|setjmp.h|signal.h|stdalign.h|stdarg.h|stdatomic.h|stdbit.h|stdbool.h|stdckdint.h|stddef.h|stdint.h|stdio.h|stdlib.h|stdnoreturn.h|string.h|tgmath.h|threads.h|time.h|uchar.h|wchar.h|wctype.h)>"
+    Priority: -6
   - Regex: "<sys/\\.*.h>"
-    Priority: -2
+    Priority: -5
+  - Regex: "<.*\\.hpp>"
+    Priority: -4
   - Regex: "<.*\\.h>"
+    Priority: -3
+  - Regex: "\".*\\.hpp\""
+    Priority: -2
+  - Regex: "\".*\\.h\""
     Priority: -1
-  - Regex: "^\""
-    Priority: 0
 ...

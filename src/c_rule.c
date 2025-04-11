@@ -7,11 +7,10 @@
 #define _XOPEN_SOURCE	700
 #define _POSIX_C_SOURCE 2
 
-#include <string.h>
-
 #include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 
 #include <sys/stat.h>
 #include <sys/types.h>

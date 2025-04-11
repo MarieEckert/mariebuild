@@ -20,8 +20,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include "cptrlist.h"
 #include <stdlib.h>
+
+#include "cptrlist.h"
 
 bool
 cptrlist_init(CPtrList *list, size_t capacity, size_t resize_align)

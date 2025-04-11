@@ -7,9 +7,8 @@
 #ifndef XMEM_H
 #define XMEM_H
 
-#include <stdlib.h>
-
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "logging.h"
 

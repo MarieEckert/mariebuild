@@ -7,9 +7,9 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include "cptrlist.h"
-
 #include <stddef.h>
+
+#include "cptrlist.h"
 
 typedef enum build_type {
 	BUILD_TYPE_FULL = 0,

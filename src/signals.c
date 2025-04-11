@@ -7,16 +7,15 @@
 #define _XOPEN_SOURCE	700
 #define _POSIX_C_SOURCE 2
 
-#include "cptrlist.h"
-#include "stringutil.h"
+#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include <stdbool.h>
-#include <stdio.h>
-
+#include "cptrlist.h"
 #include "logging.h"
 #include "signals.h"
+#include "stringutil.h"
 
 #define SIGNAL_CHECKED(s, h)                                                 \
 	do {                                                                     \
