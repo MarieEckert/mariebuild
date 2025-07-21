@@ -107,7 +107,7 @@ sector targets
 		str target_builddir '$(/config/files/release_dir)'
 		str target_objdir '$(/config/files/release_dir)$(/config/files/obj_dir)'
 
-		list str required_targets 'clean', 'depends', 'manpage'
+		list str required_targets 'clean-release', 'depends'
 
 		list str c_rules 'executable', 'strip-executable'
 	end
