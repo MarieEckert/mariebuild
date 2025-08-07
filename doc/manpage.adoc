@@ -50,4 +50,4 @@ This software is licensed under the BSD 3-Clause license.
 
 == Source
 
-The sourcecode repository can be found on GitHub under https://github.com/MarieEckert/mariebuild.git
+The sourcecode repository can be found on GitHub under https://git.heroin.trade/marie/mariebuild.git

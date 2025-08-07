@@ -4,7 +4,7 @@ A build system primarly designed and intended for my use.
 ## Building
 ### Setup
 To quickly setup mariebuild for building, simply run the `setup.bash` script. This will
-automatically build [libmcfg_2](https://github.com/MarieEckert/mcfg_2) from the tag/commit specified in the script.
+automatically build [libmcfg_2](https://git.heroin.trade/marie/mcfg_2) from the tag/commit specified in the script.
 
 ### Compiling
 **With mariebuild (0.5.0 or higher):** `mb -t release` <br>
@@ -31,7 +31,7 @@ Author: Marie Eckert
 Mandatory or optional arguments to long options are also mandatory or optional
 for any corresponding short options.
 
-Report bugs to https://github.com/MarieEckert/mariebuild/issues.
+Report bugs to https://git.heroin.trade/marie/mariebuild/issues.
 ```
 
 ## TODO (for mariebuild 1.0.0)
@@ -44,7 +44,7 @@ Report bugs to https://github.com/MarieEckert/mariebuild/issues.
 - [ ] Documentation
 
 ## License
-Mariebuild is licensed under the BSD 3-Clause License, see [The LICENSE file](https://github.com/MarieEckert/mariebuild/blob/master/LICENSE).
+Mariebuild is licensed under the BSD 3-Clause License, see [The LICENSE file](https://git.heroin.trade/marie/mariebuild/src/branch/trunk/LICENSE).
 
 ## Links
 

@@ -92,7 +92,7 @@ sector c_rules
 end
 ```
 
-**It may also be useful to read the [MCFG/2 Documentation](https://github.com/MarieEckert/mcfg_2/blob/main/doc/embed_formatting.md) on field embedding/formatting**
+**It may also be useful to read the [MCFG/2 Documentation](https://git.heroin.trade/marie/mcfg_2/blob/main/doc/embed_formatting.md) on field embedding/formatting**
 
 ## Relevant Source Files
 ```

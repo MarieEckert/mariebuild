@@ -39,7 +39,7 @@ const char *argp_program_version = "mariebuild " MARIEBUILD_VERSION
 								   "\n"
 								   "using MCFG/2 " MCFG_2_VERSION;
 const char *argp_program_bug_address =
-	"https://github.com/FelixEcker/mariebuild/issues";
+	"https://git.heroin.trade/marie/mariebuild/issues";
 const char description[] =
 	"A simple build system inspired by my hate against makefiles\n"
 	"Author: Marie Eckert";
