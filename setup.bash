@@ -25,13 +25,13 @@ function libmcfg_2_setup() {
   mkdir $BUILD_DIR
   cd $BUILD_DIR
 
-  git clone https://github.com/FelixEcker/mcfg_2.git
+  git clone https://git.heroin.trade/marie/mcfg_2.git
 
   cd mcfg_2
-  
+
   echo "==> working on tag $MCFG_2_TAG"
   git checkout $MCFG_2_TAG 2> /dev/null
-  
+
   bash scripts/setup.bash || exit
   bash scripts/build.bash --lib-only || return
 
